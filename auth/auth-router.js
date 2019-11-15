@@ -17,7 +17,7 @@ router.post('/register', (req, res) => {
       db.insert(user)
       .then(added => {
         const token = getToken(user.username)
-        res.status(201).json({ message: `Welcome, ${user.username}`})
+        res.status(201).json({ message: `Welcome, ${user.username}`, token: token})
       })
       .catch(err => res.status(500).json({ error: 'Could not add user' }))
     }
